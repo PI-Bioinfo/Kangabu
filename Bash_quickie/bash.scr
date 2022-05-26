@@ -1,0 +1,9 @@
+ls read/*.fastq.gz > fastq.list
+
+gawk -F "," '{print $2}' sample.list > temp1
+
+while read line; do grep $line fastq.list; done < temp1 | xargs -n2 | tr -s " " "," > temp2
+
+paste -d ',' sample.list temp2 | gawk 'BEGIN {print "group,sample,read_1,read_2"}{print $0}'> clean_sample.list
+
+rm temp1 temp2

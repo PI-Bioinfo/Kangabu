@@ -1,1 +1,5 @@
 Quickie bash for read file name & re-create metadata
+
+`sample.list` is extracted from the first 2 cols of metadata.csv (post sort + uniq -c/-d, so all sample should be unique)
+  
+  
